@@ -23,9 +23,13 @@ function parseMedFile(text) {
                 const tag = match[1];
                 const content = match[2];
                 const tagName = tagMap[tag] || tag;
+                
+                const items = content.split(';').map(item => item.trim()).filter(item => item);
+                const tagsHtml = items.map(item => `<span class="medical-tag">${item}</span>`).join(' ');
+
                 html += `<div class="anamnesis-item">
                            <span class="anamnesis-tag">${tagName}:</span>
-                           <div class="anamnesis-content"><p>${content}</p></div>
+                           <div class="anamnesis-content">${tagsHtml}</div>
                          </div>`;
             } else {
                  html += `<p>${line}</p>`; // Linhas que não se encaixam no padrão

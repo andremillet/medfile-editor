@@ -113,3 +113,14 @@ main {
         color: #005a9e;
     }
 }
+
+.medical-tag {
+    display: inline-block;
+    background-color: var(--button-background);
+    color: var(--foreground);
+    padding: 4px 10px;
+    border-radius: 12px;
+    margin: 0 8px 8px 0;
+    font-size: 0.9em;
+    font-weight: 500;
+}
