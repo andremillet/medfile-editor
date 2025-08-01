@@ -1,48 +1,115 @@
+
+:root {
+    --font-sans: 'Inter', sans-serif;
+    --background: #1e1e1e;
+    --foreground: #d4d4d4;
+    --panel-background: #252526;
+    --panel-border: #333333;
+    --button-background: #3a3d41;
+    --button-hover-background: #4a4d51;
+    --accent-blue: #007acc;
+    --text-secondary: #a0a0a0;
+}
+
 body {
-    font-family: sans-serif;
+    font-family: var(--font-sans);
+    background-color: var(--background);
+    color: var(--foreground);
     margin: 0;
     display: flex;
     flex-direction: column;
     height: 100vh;
+    overflow: hidden;
 }
 
 header {
-    background-color: #f0f0f0;
-    padding: 10px;
-    border-bottom: 1px solid #ccc;
+    background-color: var(--panel-background);
+    padding: 12px 20px;
+    border-bottom: 1px solid var(--panel-border);
+    flex-shrink: 0;
 }
 
 .toolbar button {
+    font-family: var(--font-sans);
+    background-color: var(--button-background);
+    color: var(--foreground);
+    border: 1px solid var(--panel-border);
+    padding: 8px 16px;
     margin-right: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.toolbar button:hover {
+    background-color: var(--button-hover-background);
 }
 
 main {
     display: flex;
     flex: 1;
+    height: calc(100vh - 50px); /* Adjust based on header height */
 }
 
 .panel {
     height: 100%;
     overflow: auto;
-    padding: 10px;
     box-sizing: border-box;
 }
 
 #editor-container {
-    width: 70%;
-    border-right: 1px solid #ccc;
+    width: 60%;
+    border-right: 1px solid var(--panel-border);
 }
 
 #preview-container {
-    width: 30%;
+    width: 40%;
+    padding: 20px;
+    background-color: var(--background);
+}
+
+#preview-container h2 {
+    color: var(--accent-blue);
+    border-bottom: 1px solid var(--panel-border);
+    padding-bottom: 8px;
+    margin-top: 0;
+    font-weight: 700;
+}
+
+#preview-container .anamnesis-item {
+    margin-bottom: 12px;
+}
+
+#preview-container .anamnesis-tag {
+    font-weight: 500;
+    color: var(--text-secondary);
+    display: block;
+    margin-bottom: 4px;
+}
+
+#preview-container .anamnesis-content {
+    padding-left: 16px;
+    border-left: 2px solid var(--panel-border);
+}
+
+#preview-container p {
+    line-height: 1.6;
 }
 
 @media print {
+    body {
+        background-color: #ffffff;
+        color: #000000;
+    }
     header, #editor-container {
         display: none;
     }
-
     #preview-container {
         width: 100%;
+        padding: 0;
+        background-color: #ffffff;
+    }
+    #preview-container h2 {
+        color: #005a9e;
     }
 }
