@@ -1,10 +1,9 @@
-
-
 function parseMedFile(text) {
     const lines = text.split('\n');
     let html = '';
     const tagMap = {
-        '!HPP': 'História da Doença Atual',
+        '!HDA': 'História da Doença Atual',
+        '!HPP': 'História Patológica Pregressa',
         '!MED': 'Medicações em Uso',
         '!HF': 'História Familiar',
         '!RX': 'Exames de Imagem',
